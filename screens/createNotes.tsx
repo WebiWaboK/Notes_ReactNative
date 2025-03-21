@@ -16,10 +16,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#110022',
         alignItems: 'center',
         justifyContent: 'center',
+        padding: 12,
+
     },
 
     input: {
         backgroundColor: "#CCC",
-        padding: 12
-    }
+        margin : 12,
+        padding: 12,
+    },
+
+    
 })

@@ -5,7 +5,7 @@ import { Link } from "expo-router";
 export default function ButtonCreate() {
     return (
         <View>
-            <Link href='/createNotes'>
+            <Link href='/note'>
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.textButton}>Crear notas</Text>
                 </TouchableOpacity>
@@ -21,6 +21,6 @@ const styles = StyleSheet.create({
     },
 
     textButton: {
-        color: '#FFF'
+        color: '#AAAAAA '
     }
 })

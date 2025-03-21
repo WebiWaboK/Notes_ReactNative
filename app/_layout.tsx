@@ -4,7 +4,7 @@ export default function Layout() {
     return (
         <Stack>
             <Stack.Screen name="index" options={{title:"Inicio"}} />
-            <Stack.Screen name="createNotes" options={{title:"Crear una nueva nota!!!"}} />
+            <Stack.Screen name="note" options={{title:"Crear una nueva nota!!!"}} />
         </Stack>
     )
 }
