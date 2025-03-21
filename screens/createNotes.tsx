@@ -1,11 +1,46 @@
+//createNotes.tsx
 import React from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native";
+import { useState } from "react";
 
 export default function CreateNotes() {
+
+    const [title, setTitle] = useState <string> (""); //Declaramos el estado para que se guarde el titulo
+
+    const [note, setNote] = useState <string> (""); //Declaramos el estado para que se actualice el contenido de la nota
+
+    //Declaramos para que se guarden ambos estados en uno mismo
+    const [saveData, setSaveData] = useState<{title: string, note: string} | null > (null);
+
+    const handleChange = (name: "title" | "note", value: string) => {
+        if (name == "title") {
+            setTitle(value);
+        } else {
+            setNote(value);
+        }
+    }
+
+    const handleSave = () => {
+        setSaveData({title, note});
+    }
+
     return (
         <View style={styles.container}>
-            <TextInput style={styles.input} placeholder="Titulo"/>
-            <TextInput style={styles.input} placeholder="Nota: " multiline/>
+            <TextInput style={styles.input}
+                placeholder="Titulo"
+                value = {title}
+                onChangeText={(text) => handleChange("title", text)}
+            />
+            <TextInput style={styles.input}
+                placeholder="Nota: "
+                multiline
+                value = {note}
+                onChangeText={(text) => handleChange("note", text)}
+            />
+            <TouchableOpacity style = {styles.button} onPress={handleSave}>
+                <Text style = {styles.textButton}>Guardar Nota</Text>
+            </TouchableOpacity>
+
         </View>
     )
 }
@@ -26,5 +61,11 @@ const styles = StyleSheet.create({
         padding: 12,
     },
 
-    
+    button: {
+        backgroundColor: '#AAAAAA'
+    },
+
+    textButton: {
+        color: '#FFF'
+    }
 })
