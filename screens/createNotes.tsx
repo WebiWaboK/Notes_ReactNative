@@ -2,6 +2,7 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import { useState } from "react";
+import { Link } from "expo-router";
 
 export default function CreateNotes() {
 
@@ -24,6 +25,10 @@ export default function CreateNotes() {
         setSaveData({title, note});
     }
 
+    const debuggerData = () => {
+        console.log(saveData);
+    }
+
     return (
         <View style={styles.container}>
             <TextInput style={styles.input}
@@ -37,9 +42,12 @@ export default function CreateNotes() {
                 value = {note}
                 onChangeText={(text) => handleChange("note", text)}
             />
-            <TouchableOpacity style = {styles.button} onPress={handleSave}>
-                <Text style = {styles.textButton}>Guardar Nota</Text>
-            </TouchableOpacity>
+            <Link href={{pathname: '/', params: {title, note}}}>
+                <TouchableOpacity style = {styles.button} onPress={handleSave}>
+                    <Text style = {styles.textButton}>Guardar Nota</Text>
+                </TouchableOpacity>        
+            </Link>
+
 
         </View>
     )
